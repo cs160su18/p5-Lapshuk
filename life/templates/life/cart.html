@@ -17,7 +17,7 @@
     var user = {
       first_name: "John",
       last_name: "Doe",
-      user_id: 123
+      user_id: 420
     }
     
     $.getJSON('/life/cart_details', user, function(data) {
@@ -32,10 +32,19 @@
     });
   </script>
 </head>
-
+<style>
+  .cart {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 1%;
+  }
+  </style>
 <body>
   <div class="container-fluid">
       <img id="hmlogo" src="{% static '/life/images/h&m.png' %}">
+    <div class="cart">
+      MY CART
+    </div>
     </div>
     <div class="container-fluid productcontent">
     </div>
