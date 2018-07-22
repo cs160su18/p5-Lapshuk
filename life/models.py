@@ -4,8 +4,6 @@ class Group(models.Model):
 	established = models.DateTimeField(auto_now_add=True)
 	name = models.CharField(max_length=50)
   
-
-  
   
 class Item(models.Model):
   total_quantity = models.IntegerField()
