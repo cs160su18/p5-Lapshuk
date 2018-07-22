@@ -10,11 +10,15 @@
 		<link rel="stylesheet" type="text/css" href="{% static '/life/vendors/bootstrap/css/bootstrap.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static '/life/css/main.css' %}" />
 
-		<script src="{% static '/life/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
-		<script src="{% static '/life/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+		<script src="{% static '/life/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+		<script src="{% static '/life/vendor/jquery-ui/jquery-ui.min.js' %}"></script>
 	</head>
 	<body>
 		<!-- Your layout here -->
-
+    <h1 class="centered">Inventory Viewer</h1>
+    <a class="centered" href="/life/item">Item</a>
+    <a class="centered" href="/life/cart">Cart</a>
+    <a class="centered" href="/life/scan">Scan</a>
+    <a class="centered" href="/life/stock">Stock</a>
 	</body>
 </html>

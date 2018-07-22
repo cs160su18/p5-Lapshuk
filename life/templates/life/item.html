@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <title></title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static '/life/vendor/bootstrap/css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/life/css/main.css' %}" />
+
+  <script src="{% static '/life/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static '/life/vendor/jquery-ui/jquery-ui.min.js' %}"></script>
+  <script>
+    $(document).ready(function() {
+
+      var total_quantity;
+      var description;
+      var product_id;
+      var size;
+      var user = {
+        first_name: "John",
+        last_name: "Doe",
+        user_id: 123
+      }
+      var link = window.location.href
+      var url = new URL(link);
+      var c = url.searchParams.get("product_id")
+      var data = {
+        'id': c
+      }
+
+      $.getJSON('/life/item_details', data, function(data) {
+        data = data[0]['fields'];
+        console.log(data);
+
+        total_quantity = data['total_quantity']
+        description = data['description']
+        product_id = data['product_id']
+        size = data['size']
+        $('.productcontent').append("<p> Quantity: " + total_quantity + ", Description: " + description + ", Product_ID: " + product_id + ", Size: " + size + "</p>");
+      });
+
+      //doing this for testing
+      $('.productcontent').on("click", function(event) {
+        $('.productcontent').css("background-color", "blue")
+        var item_to_add = {
+          user_id: user.user_id,
+          product_id: product_id,
+          quantity: 1
+        }
+
+        $.getJSON('/life/add_to_cart/', item_to_add, function(data) {
+          console.log("Added" + item_to_add)
+        });
+        $('.productcontent').css("background-color", "white")
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <img id="hmlogo" src="{% static '/life/images/h&m.png' %}">
+    <!--       <button class="btn btn-primary rrr">
+        CLICK here 
+      </button> -->
+  </div>
+
+  <div class="container-fluid productcontent btn btn-light">
+  </div>
+<a class="centered" href="/life">Return Home</a>
+</body>
+
+</html>

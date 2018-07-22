@@ -156,3 +156,37 @@ table {
     background-color: #f1f1f1;
     border: 1px solid #0d124a11;
 }
+
+#hmlogo {
+  height: 100px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.productcontent {
+  border: 1px solid black;
+}
+
+p {
+  text-align: center;
+  font-family: "Bookman", serif;
+}
+
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+
+.centered {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  float: center;
+}

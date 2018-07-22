@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <title></title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static '/life/vendor/bootstrap/css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/life/css/main.css' %}" />
+
+  <script src="{% static '/life/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static '/life/vendor/jquery-ui/jquery-ui.min.js' %}"></script>
+  <script type="text/javascript">
+    var user = {
+      first_name: "John",
+      last_name: "Doe",
+      user_id: 123
+    }
+    
+    $.getJSON('/life/cart_details', user, function(data) {
+      var i;
+      for (i = 0; i < data.length; i++){
+        var temp_data = data[i]['fields'];
+        var user_id = temp_data["user_id"];
+        var product_id = temp_data["product_id"]
+        var quantity = temp_data["quantity"]
+         $('.productcontent').append("<p> User ID: " + user_id +  ", Product_ID: " + product_id + ", Quantity: " + quantity + "</p>");
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container-fluid">
+      <img id="hmlogo" src="{% static '/life/images/h&m.png' %}">
+    </div>
+    <div class="container-fluid productcontent">
+    </div>
+  <a class="centered" href="/life">Return Home</a>
+</body>
+
+</html>

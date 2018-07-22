@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <title></title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static '/life/vendor/bootstrap/css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/life/css/main.css' %}" />
+
+  <script src="{% static '/life/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static '/life/vendor/jquery-ui/jquery-ui.min.js' %}"></script>
+  
+</head>
+
+<body>
+  <h1 class="centered">Stock</h1>
+  <h4 class="centered">Use this to add items to stock</h4>
+  <div class="search-container">
+    <form id="stock" action="javascript:grabProperties()"/>
+      <input id="product_id" class="centered" type="text" name="product_id" placeholder="Enter Product ID">
+      <input id="description" class="centered" type="text" name="description" placeholder="Enter Description">
+      <input id="quantity" class="centered" type="text" name="quantity" placeholder="Enter Quantity">
+      <input id="size" class="centered" type="text" name="size" placeholder="Enter Size">
+      <button class="centered btn" type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+ <script>
+   
+    function grabProperties() {
+      var $inputs = $('#stock :input');
+      //var queryString = $('#stock').serialize();
+      var values = {};
+      $inputs.each(function() {
+          values[this.name] = $(this).val();
+      });
+      console.log(values);
+    }
+   
+//     $(document).ready(function() {
+
+//       var total_quantity = $("#product_id").value
+//       var description;
+//       var product_id;
+//       var size;
+//       var user = {
+//         first_name: "John",
+//         last_name: "Doe",
+//         user_id: 123
+//       }
+//       var data = {
+//         'id': c
+//       }
+
+//       //doing this for testing
+//       $(".btn").on("click", function(event) {
+//         var item_to_add = {
+//           total_quantity: 
+//           description:
+//           product_id:
+//           size:
+//         }
+
+//         $.getJSON('/life/add_to_cart/', item_to_add, function(data) {
+//           console.log("Added" + item_to_add)
+//         });
+//       });
+//     });
+  </script>
+</html>

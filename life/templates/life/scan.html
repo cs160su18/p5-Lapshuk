@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <title></title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static '/life/vendor/bootstrap/css/bootstrap.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/life/css/main.css' %}" />
+
+  <script src="{% static '/life/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static '/life/vendor/jquery-ui/jquery-ui.min.js' %}"></script>
+  
+</head>
+
+<body>
+  <h1 class="centered">Scanning</h1>
+  <div class="search-container">
+    <form action="/life/item"/>
+      <input class="centered" type="text" name="product_id" placeholder="Enter Product ID">
+      <button class="centered" type="submit">Submit</button>
+    </form>
+  </div>
+  <a class="centered" href="/life">Return Home</a>
+</body>
+</html>
